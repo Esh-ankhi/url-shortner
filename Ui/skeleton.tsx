@@ -1,88 +1,55 @@
-import React from 'react';
-
-// Basic Skeleton Component
-const Skeleton = ({ className = '' }) => (
-  <div className={`animate-pulse bg-gray-200 rounded ${className}`} />
-);
-
-// Card Skeleton
-const CardSkeleton = () => (
-  <div className="border rounded-lg p-4">
-    <Skeleton className="h-40 w-full mb-3" />
-    <Skeleton className="h-5 w-3/4 mb-2" />
-    <Skeleton className="h-4 w-1/2 mb-2" />
-    <Skeleton className="h-4 w-full" />
-  </div>
-);
-
-// Profile Skeleton
-const ProfileSkeleton = () => (
-  <div className="border rounded-lg p-4">
-    <div className="flex items-center gap-3 mb-4">
-      <Skeleton className="h-12 w-12 rounded-full" />
-      <div>
-        <Skeleton className="h-5 w-32 mb-2" />
-        <Skeleton className="h-4 w-24" />
-      </div>
-    </div>
-    <Skeleton className="h-4 w-full mb-2" />
-    <Skeleton className="h-4 w-2/3" />
-  </div>
-);
-
-// List Skeleton
-const ListSkeleton = () => (
-  <div className="space-y-3">
-    {[1, 2, 3, 4, 5].map((item) => (
-      <div key={item} className="flex items-center gap-3 p-3 border rounded">
-        <Skeleton className="h-10 w-10 rounded" />
-        <div className="flex-1">
-          <Skeleton className="h-4 w-32 mb-2" />
-          <Skeleton className="h-3 w-24" />
-        </div>
-        <Skeleton className="h-6 w-16" />
-      </div>
-    ))}
-  </div>
-);
-
-// Main UI Component
-const SkeletonUI = () => {
+const Skeleton = () => {
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-4xl mx-auto">
-        
-        {/* Header */}
-        <div className="mb-8">
-          <Skeleton className="h-8 w-64 mb-2" />
-          <Skeleton className="h-4 w-96" />
-        </div>
-
-        {/* Cards Grid */}
-        <div className="mb-8">
-          <Skeleton className="h-6 w-32 mb-4" />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <CardSkeleton />
-            <CardSkeleton />
-            <CardSkeleton />
+    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {[1, 2, 3, 4, 5, 6].map((item) => (
+        <div
+          key={item}
+          className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 animate-pulse"
+        >
+          {/* Header */}
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-3 h-3 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
+            <div className="h-5 bg-gray-300 dark:bg-gray-600 rounded w-3/4"></div>
+          </div>
+          
+          {/* Description */}
+          <div className="space-y-2 mb-4">
+            <div className="h-4 bg-gray-300 dark:bg-gray-600 rounded w-full"></div>
+            <div className="h-4 bg-gray-300 dark:bg-gray-600 rounded w-5/6"></div>
+          </div>
+          
+          {/* Language and Stats */}
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
+              <div className="h-3 bg-gray-300 dark:bg-gray-600 rounded w-12"></div>
+            </div>
+            <div className="flex gap-4">
+              <div className="h-3 bg-gray-300 dark:bg-gray-600 rounded w-8"></div>
+              <div className="h-3 bg-gray-300 dark:bg-gray-600 rounded w-8"></div>
+            </div>
+          </div>
+          
+          {/* Progress Bar */}
+          <div className="mb-4">
+            <div className="flex justify-between mb-1">
+              <div className="h-3 bg-gray-300 dark:bg-gray-600 rounded w-16"></div>
+              <div className="h-3 bg-gray-300 dark:bg-gray-600 rounded w-12"></div>
+            </div>
+            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div className="bg-gray-300 dark:bg-gray-600 h-2 rounded-full w-1/2"></div>
+            </div>
+          </div>
+          
+          {/* Footer */}
+          <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
+            <div className="h-3 bg-gray-300 dark:bg-gray-600 rounded w-20"></div>
+            <div className="h-6 bg-gray-300 dark:bg-gray-600 rounded w-16"></div>
           </div>
         </div>
-
-        {/* Profile Section */}
-        <div className="mb-8">
-          <Skeleton className="h-6 w-32 mb-4" />
-          <ProfileSkeleton />
-        </div>
-
-        {/* List Section */}
-        <div>
-          <Skeleton className="h-6 w-32 mb-4" />
-          <ListSkeleton />
-        </div>
-
-      </div>
+      ))}
     </div>
   );
 };
 
-export default SkeletonUI;
+export default Skeleton;
