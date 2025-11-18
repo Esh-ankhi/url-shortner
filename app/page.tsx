@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
 import Image from 'next/image';
-import Skeleton from '@/Ui/skeleton'
+import Skeleton from '@/Ui/skeleton';
+import { cacheLife } from 'next/cache';
 export default function Page() {
   
   return (
@@ -51,6 +52,8 @@ export default function Page() {
 }
 
 async function RepoList() {
+  'use cache'
+  cacheLife('hours');
   await new Promise(res => setTimeout(res, 3000));
   const res = await fetch('https://api.github.com/users/Esh-ankhi/repos', {
     next: { revalidate: 3600 }

@@ -1,11 +1,9 @@
 import type { NextConfig } from "next";
-import { Flamenco } from "next/font/google";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  cacheComponents: false,
+  cacheComponents: true,
   images: {
-      domains: ['avatars.githubusercontent.com'],
       remotePatterns: [
         {
           protocol: 'https',
