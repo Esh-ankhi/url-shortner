@@ -54,6 +54,7 @@ export default function Page() {
 async function RepoList() {
   'use cache'
   cacheLife('hours');
+  console.log("cached not");
   await new Promise(res => setTimeout(res, 3000));
   const res = await fetch('https://api.github.com/users/Esh-ankhi/repos', {
     next: { revalidate: 3600 }
